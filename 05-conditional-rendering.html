@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.0.0-rc.3/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.0.0-rc.3/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script type="text/babel">
+  function Message({message}) {
+    return (
+      <div>
+        {
+          message
+            ? <div>{message}</div>
+            : <div>Seeya!</div>
+        }
+      </div>
+    );
+  }
+
+  ReactDOM.render(
+    <Message message={null}/>,
+    document.getElementById('root')
+  );
+</script>
+</body>
+</html>
