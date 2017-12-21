@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script type="text/babel">
+  class NameForm extends React.Component {
+    handleSubmit = event => {
+      event.preventDefault();
+      const value = event.target.elements.username.value;
+      const error = this.props.getErrorMessage(
+        value,
+      );
+      if (error) {
+        alert(`error: ${error}`)
+      } else {
+        alert(`success: ${value}`)
+      }
+
+    }
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="username"
+              ref={node => (this.inputNode = node)}
+            />
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      )
+    }
+  }
+  ReactDOM.render(
+    <NameForm />,
+    document.getElementById('root'),
+  )
+</script>
+</body>
+
+
+</html>
